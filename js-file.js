@@ -17,6 +17,9 @@ function displayBooks(myLibrary){
   for(let i = 0; i < myLibrary.length; i++){
     let currentBook = myLibrary[i];
     if(!currentBook.displayed) {
+      const containerContainer = document.createElement("div");
+      containerContainer.classList.add("book-container");
+      containerContainer.setAttribute('data-index', id);
       const domContainer = document.createElement("div");
       domContainer.classList.add("book");
       domContainer.setAttribute('data-index', id);
@@ -24,10 +27,11 @@ function displayBooks(myLibrary){
       addBookElements(domContainer, currentBook, 'author', 'p', currentBook.author);
       addBookElements(domContainer, currentBook, 'pages', 'p', currentBook.pages);
       addBookElements(domContainer, currentBook, 'haveRead', 'p', currentBook.haveRead);
-      addBookButton(domContainer, currentBook, 'remove', 'button', id);
       addBookButton(domContainer, currentBook, 'read', 'button', id);
+      addBookButton(domContainer, currentBook, 'remove', 'button', id);
       id++;
-      bookShelf.appendChild(domContainer);
+      containerContainer.appendChild(domContainer);
+      bookShelf.appendChild(containerContainer);
     }
     currentBook.displayed = true;
   }
@@ -54,7 +58,7 @@ function addBookButton(domContainer, currentBook, className, htmlTag, index){
       console.log(index);
       console.log(myLibrary);
       myLibrary.splice(index, 1);
-      const bookToRemove = bookShelf.querySelector(`.book[data-index="${index}"]`);
+      const bookToRemove = bookShelf.querySelector(`.book-container[data-index="${index}"]`);
       bookToRemove.remove();
       id--;
     })
