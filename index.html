@@ -10,23 +10,33 @@
 <body>
   <dialog>
     <form method="post">
-      <label for="title">Title:</label>
-      <input type="text" id="title" name="title">
-      <label for="author">Author:</label>
-      <input type="text" id="author" name="author">
-      <label for="pages">Pages:</label>
-      <input type="number" id="pages" name="pages">
-      <label for="haveRead">Have you read this?</label>
+      <div class="form-element">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title">
+      </div>
+      <div class="form-element">
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author">
+      </div>
+      <div class="form-element">
+        <label for="pages">Pages:</label>
+        <input type="number" id="pages" name="pages">
+      </div>
+      <label for="haveRead">Have you read this book?</label>
       <input type="checkbox" id="haveRead" name="haveRead">
-      <button type="submit">submit</button>
-      <button type="button" class="cancel">cancel</button>
+      <div class="form-element">
+        <button type="submit">submit</button>
+        <button type="button" class="cancel">close</button>
+      </div>
     </form>
   </dialog>
   <header>
-    <h1>The Library</h1>
-    <p>Photo by <a href="https://unsplash.com/@patrickian4">Patrick Fore</a> 
-      on <a href="https://unsplash.com/">Unsplash</a></p>
-      <button class="js-newBook">Add book</button>
+    <div class="js-newBook">Add book</div>
+    <div class="header-content">
+      <h1>The Library</h1>
+      <p>Photo by <a href="https://unsplash.com/@patrickian4">Patrick Fore</a> 
+        on <a href="https://unsplash.com/">Unsplash</a></p>
+    </div>
   </header>
   <main>
     <div class="bookshelf">
