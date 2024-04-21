@@ -36,7 +36,11 @@ function displayBooks(myLibrary){
 function addBookElements(domContainer, currentBook, className, htmlTag, content){
   let currentElement = document.createElement(`${htmlTag}`);
   currentElement.classList.add(`${className}`);
-  currentElement.textContent = `${content}`;
+  if(className === 'haveRead') {
+    currentElement.textContent = content ? 'Have read' : 'Not read yet';
+  } else {
+    currentElement.textContent = `${content}`;
+  }
   domContainer.appendChild(currentElement);
 }
 
@@ -60,7 +64,7 @@ function addBookButton(domContainer, currentBook, className, htmlTag, index){
       const bookTitle = bookShelf.querySelector(`.book[data-index="${index}"] .title`).textContent;
       const bookIndex = myLibrary.findIndex(book => book.title === bookTitle);
       myLibrary[bookIndex].haveRead = !myLibrary[bookIndex].haveRead;
-      bookToUpdate.textContent = myLibrary[bookIndex].haveRead;
+      bookToUpdate.textContent = myLibrary[bookIndex].haveRead ? 'Have read' : 'Not read yet';
     })
   }
 }
